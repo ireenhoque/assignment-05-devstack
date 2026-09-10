@@ -1,7 +1,12 @@
 //import React from 'react';
 import React, { use } from 'react';
+import type { IDevStack } from '../../types/devStackType';
 
-const DevStack = ({ technologiesPromise }) => {
+interface DevStackProps {
+    technologiesPromise: Promise<IDevStack[]>;
+}
+
+const DevStack = ({ technologiesPromise }: DevStackProps) => {
 
     console.log(technologiesPromise);
     const technologies = use(technologiesPromise);
