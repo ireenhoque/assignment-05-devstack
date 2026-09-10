@@ -1,0 +1,52 @@
+import React from 'react';
+import FooterImage from './../assets/logo-text.png';
+
+const Footer = () => {
+    return (
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-0 border-[#dce1e9]'>
+            <div className='flex justify-between'>
+                <div>
+                    <img src={FooterImage} alt="Footer Logo" />
+                    <p className= 'text-[#64748B]'>Curated tools, technologies, and resources for developers building <br /> modern software.</p>
+                    <ul className='flex gap-4 font-semibold'>
+                        <li>GitHub</li>
+                        <li>Twitter</li>
+                        <li>LinkedIn</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className='font-semibold'>PRODUCT</h4>
+                    <ul className= 'text-[#64748B]'>
+                        <li>Home</li>
+                        <li>Technologies</li>
+                        <li>Projects</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className='font-semibold'>COMPANY</h4>
+                    <ul className= 'text-[#64748B]'>
+                        <li>About</li>
+                        <li>Contact</li>
+                        <li>Careers</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className='font-semibold'>LEGAL</h4>
+                    <ul className= 'text-[#64748B]'>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Service</li>
+                    </ul>
+                </div>
+            </div>
+            <div className='flex justify-between items-center mt-8 border-t border-[#dce1e9] pt-4'>
+                <p className='text-[#64748B] text-center'>© 2026 DevStack. All rights reserved.</p>
+                <ul className='flex justify-center gap-4 text-[#64748B]'>
+                    <li>Privacy</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+        </div>
+    );
+};
+
+export default Footer;

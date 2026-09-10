@@ -3,6 +3,7 @@ import Banner from './component/Banner';
 import DevStack from './component/devstack/DevStack';
 import Nav from './component/Nav';
 import type { IDevStack } from './types/devStackType';
+import Footer from './component/Footer';
 
 
 const technologiesFetch = async (): Promise<IDevStack[]> => {
@@ -21,6 +22,7 @@ function App() {
       <Suspense fallback={<h2>Loading...</h2>}>
         <DevStack technologiesPromise={technologiesPromise} />
       </Suspense>
+      <Footer />
       
       
     </>
