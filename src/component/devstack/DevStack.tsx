@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import { use, useState } from 'react';
 import type { IDevStack } from '../../types/devStackType';
 import AvailableStack from './AvailableStack';
 import YourStack from './YourStack';
@@ -10,13 +10,10 @@ interface DevStackProps {
 const DevStack = ({ technologiesPromise }: DevStackProps) => {
     const technologies = use(technologiesPromise);
 
-    // Selected technologies
     const [stack, setStack] = useState<IDevStack[]>([]);
 
-    // Add technology
     const addToStack = (technology: IDevStack) => {
         setStack((currentStack) => {
-            // Prevent duplicate
             if (
                 currentStack.some(
                     (item) => item.id === technology.id
@@ -29,7 +26,6 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
         });
     };
 
-    // Remove technology
     const removeFromStack = (id: IDevStack['id']) => {
         setStack((currentStack) =>
             currentStack.filter(
@@ -40,8 +36,6 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
 
     return (
         <section className="container mx-auto py-10">
-
-            {/* Heading */}
             <div className="mb-6">
                 <h2 className="text-3xl font-semibold">
                     Explore the{' '}
@@ -55,12 +49,12 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
                 </p>
             </div>
 
-            {/* Main layout */}
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
 
-                {/* Available technologies */}
+                {/* Available Technologies */}
                 <AvailableStack
                     technologies={technologies}
+                    stack={stack}
                     onAddToStack={addToStack}
                 />
 
@@ -71,7 +65,6 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
                 />
 
             </div>
-
         </section>
     );
 };

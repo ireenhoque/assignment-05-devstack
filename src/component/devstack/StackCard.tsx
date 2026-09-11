@@ -4,9 +4,10 @@ import type { IDevStack } from '../../types/devStackType';
 interface StackCardProps {
     technology: IDevStack;
     onAdd: (technology: IDevStack) => void;
+    isAdded: boolean;
 }
 
-const StackCard = ({ technology, onAdd }: StackCardProps) => {
+const StackCard = ({ technology, onAdd, isAdded }: StackCardProps) => {
     return (
         <div
             className="
@@ -19,7 +20,7 @@ const StackCard = ({ technology, onAdd }: StackCardProps) => {
                 hover:shadow-md
             "
         >
-            {/* Icon + Badge */}
+            {/* Icon & Badge */}
             <div className="mb-4 flex items-start justify-between">
                 <div className="flex h-9 w-9 items-center justify-center">
                     <img
@@ -59,19 +60,22 @@ const StackCard = ({ technology, onAdd }: StackCardProps) => {
             </div>
 
             {/* Add Button */}
-            <button
+             <button
                 type="button"
                 onClick={() => onAdd(technology)}
-                className="
+                disabled={isAdded}
+                className={`
                     mt-auto h-7 w-full rounded-md
-                    bg-slate-950 text-[10px]
-                    font-medium text-white
-                    transition-colors
-                    hover:bg-slate-800
-                    active:scale-[0.98]
-                "
+                    text-[10px] font-medium
+                    transition-all
+                    ${
+                        isAdded
+                            ? 'cursor-not-allowed bg-slate-200 text-slate-400'
+                            : 'bg-slate-950 text-white hover:bg-slate-800 active:scale-[0.98]'
+                    }
+                `}
             >
-                Add to Stack
+                {isAdded ? 'Added to Stack' : 'Add to Stack'}
             </button>
         </div>
     );
