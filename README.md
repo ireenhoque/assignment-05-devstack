@@ -32,8 +32,8 @@ JSX is a syntax that allows us to write HTML-like code inside JavaScript. It mak
 The `useState` hook allows a component to store and update data. When the state changes, React re-renders the component.
 
 ### 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
-The `useEffect` hook is used to perform side effects in a component, such as fetching data, updating the document title, or setting up event listeners.
-It can be used to load JSON data because fetching data is a side effect that happens after the component renders.
+useEffect is used to perform side effects after a component renders, such as fetching data, updating the document title, or adding event listeners.
+When fetching JSON data in a component, useEffect can be used to start the fetch after the component renders and update the state when the data is received.
 
 ### 5. Why does every item in a `.map()` list need a unique `key` prop?
 A unique `key` helps React identify each item in a list. It allows React to efficiently track which items have been added, removed, or changed.
