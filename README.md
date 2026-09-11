@@ -49,8 +49,8 @@ For example, we can show an empty message when there are no items:
 )}
 
 ### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
-A parent passes data to a child through **props**.
-To send something back, the parent can pass a **function as a prop**. The child can then call that function when an event happens.
+A parent passes data to a child through props.
+To send something back, the parent can pass a function as a prop. The child can then call that function when an event happens.
 
 // Parent
 <Child onAdd={handleAdd} />
