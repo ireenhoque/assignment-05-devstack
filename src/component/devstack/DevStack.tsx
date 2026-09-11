@@ -19,6 +19,7 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
     );
 
     if (alreadyAdded) {
+        toast.warning(`${technology.name} is already in your stack`);
         return;
     }
 
@@ -31,16 +32,32 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
     };
 
     const removeFromStack = (id: IDevStack['id']) => {
+        const technology = stack.find(
+            (item) => item.id === id
+        );
+
         setStack((currentStack) =>
             currentStack.filter(
                 (item) => item.id !== id
             )
         );
+
+        if (technology) {
+            toast.info(`${technology.name} removed from your stack`);
+        }
     };
 
-    const removeAll = () => {
+     const removeAll = () => {
+        if (stack.length === 0) {
+            toast.info('Your stack is already empty');
+            return;
+        }
+
         setStack([]);
+
+        toast.success('All technologies removed from your stack');
     };
+
 
     return (
         <section className="container mx-auto py-10">
