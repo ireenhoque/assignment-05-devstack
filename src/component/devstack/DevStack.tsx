@@ -1,4 +1,5 @@
 import { use, useState } from 'react';
+import {toast} from 'react-toastify';
 import type { IDevStack } from '../../types/devStackType';
 import AvailableStack from './AvailableStack';
 import YourStack from './YourStack';
@@ -13,17 +14,20 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
     const [stack, setStack] = useState<IDevStack[]>([]);
 
     const addToStack = (technology: IDevStack) => {
-        setStack((currentStack) => {
-            if (
-                currentStack.some(
-                    (item) => item.id === technology.id
-                )
-            ) {
-                return currentStack;
-            }
+    const alreadyAdded = stack.some(
+        (item) => item.id === technology.id
+    );
 
-            return [...currentStack, technology];
-        });
+    if (alreadyAdded) {
+        return;
+    }
+
+    setStack((currentStack) => [
+        ...currentStack,
+        technology,
+    ]);
+
+    toast.success(`${technology.name} added to your stack`);
     };
 
     const removeFromStack = (id: IDevStack['id']) => {
