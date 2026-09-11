@@ -60,7 +60,7 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
 
 
     return (
-        <section className="container mx-auto py-10">
+        <section className="container mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
             <div className="mb-6">
                 <h2 className="text-3xl font-semibold">
                     Explore the{' '}

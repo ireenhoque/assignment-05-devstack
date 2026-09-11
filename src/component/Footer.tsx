@@ -4,10 +4,12 @@ import FooterImage from './../assets/logo-text.png';
 const Footer = () => {
     return (
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-0 border-[#dce1e9]'>
-            <div className='flex justify-between'>
+            <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
                 <div>
                     <img src={FooterImage} alt="Footer Logo" />
-                    <p className= 'text-[#64748B]'>Curated tools, technologies, and resources for developers building <br /> modern software.</p>
+                    <p className="max-w-sm text-sm leading-6 text-[#64748B]">
+                        Curated tools, technologies, and resources for developers building modern software.
+                    </p>
                     <ul className='flex gap-4 font-semibold'>
                         <li>GitHub</li>
                         <li>Twitter</li>
@@ -38,9 +40,12 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className='flex justify-between items-center mt-8 border-t border-[#dce1e9] pt-4'>
-                <p className='text-[#64748B] text-center'>© 2026 DevStack. All rights reserved.</p>
-                <ul className='flex justify-center gap-4 text-[#64748B]'>
+            <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-[#dce1e9] pt-4 text-center sm:flex-row">
+                <p className="text-sm text-[#64748B]">
+                    © 2026 DevStack. All rights reserved.
+                </p>
+
+                <ul className="flex justify-center gap-4 text-sm text-[#64748B]">
                     <li>Privacy</li>
                     <li>Terms</li>
                 </ul>
