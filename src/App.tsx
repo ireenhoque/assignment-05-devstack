@@ -7,10 +7,15 @@ import Footer from './component/Footer';
 
 
 const technologiesFetch = async (): Promise<IDevStack[]> => {
-  const res = await fetch('/data.json');
-  const data = await res.json();
-  return data;
-}
+    const res = await fetch(`${import.meta.env.BASE_URL}data.json`);
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch technology data');
+    }
+
+    const data = await res.json();
+    return data;
+};
 
 function App() {
     const technologiesPromise = technologiesFetch();

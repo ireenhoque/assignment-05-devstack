@@ -1,4 +1,3 @@
-import React from 'react';
 import type { IDevStack } from '../../types/devStackType';
 
 interface StackCardProps {
