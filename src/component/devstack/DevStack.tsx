@@ -34,6 +34,10 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
         );
     };
 
+    const removeAll = () => {
+        setStack([]);
+    };
+
     return (
         <section className="container mx-auto py-10">
             <div className="mb-6">
@@ -62,6 +66,7 @@ const DevStack = ({ technologiesPromise }: DevStackProps) => {
                 <YourStack
                     stack={stack}
                     onRemove={removeFromStack}
+                    onRemoveAll={removeAll}
                 />
 
             </div>
